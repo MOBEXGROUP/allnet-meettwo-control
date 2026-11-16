@@ -77,6 +77,16 @@ Requirements: JDK 21, Android SDK with platform 37, NDK 29.0.14206865, CMake 4.1
 ```
 
 - `versionCode` is the number of commits, `versionName` the latest tag without `v` (or the commit hash).
+- GitHub Actions (`.github/workflows/build.yml`) runs tests, lint and `assembleRelease` on every push and pull request and keeps the APK as a workflow artifact.
+- Pushing a tag `v*` also creates a GitHub release with the APK.
+- Release signing uses the repository secrets below. Without them, CI signs with a temporary debug key; such an APK cannot update an installed one.
+
+| Secret | Content |
+|---|---|
+| `KEYSTORE_BASE64` | release keystore, base64-encoded |
+| `KEYSTORE_PASSWORD` | keystore password |
+| `KEY_ALIAS` | key alias |
+| `KEY_PASSWORD` | key password |
 
 Release builds are not minified: R8 broke the vendor's "MeetTwo LED API" app (crash at start with `IllegalAccessError`), and the APK size does not matter on a wall tablet.
 
