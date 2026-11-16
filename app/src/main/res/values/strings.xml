@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MeetTwo LED</string>
+    <string name="channel_status">Status</string>
+    <string name="mqtt_disabled">MQTT disabled</string>
+    <string name="mqtt_connecting">MQTT connecting…</string>
+    <string name="mqtt_connected">MQTT connected</string>
+    <string name="mqtt_failed">MQTT not connected: %1$s</string>
+    <string name="led_error">LED error: %1$s</string>
+</resources>
